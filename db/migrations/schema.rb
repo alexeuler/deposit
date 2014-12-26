@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20141226115506) do
 
   create_table "deposits", force: :cascade do |t|
     t.integer  "website_id",      null: false
+    t.string   "website_link",    null: false
     t.string   "title"
     t.string   "bank"
     t.float    "rate"
@@ -25,8 +26,8 @@ ActiveRecord::Schema.define(version: 20141226115506) do
     t.string   "refill_status"
     t.string   "refill_warning"
     t.string   "refill_message"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end

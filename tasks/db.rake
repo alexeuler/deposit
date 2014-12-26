@@ -44,8 +44,7 @@ db_namespace=namespace :db do
     # for postgres
     # ActiveRecord::Base.connection.drop_database App::config.db.name
     # for sqlite3
-    path = File.expand_path('../' + App::config.db.name, File.dirname(__FILE__))
-    File::delete(path)
+    File::delete(App::config.db.name)
   end
 
   desc "reset database"
