@@ -4,9 +4,9 @@ class FirstRun
 
   def run
     47.times do |i|
-      url = fr.make_url(i)
-      page = fr.fetch_page(url)
-      res = fr.parse_page(page)
+      url = make_url(i)
+      page = fetch_page(url)
+      res = parse_page(page)
     end
     Deposit.where('term<1').delete_all
   end
