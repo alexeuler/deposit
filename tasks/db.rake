@@ -4,7 +4,7 @@ db_namespace=namespace :db do
     ActiveRecord::Base.clear_active_connections!
     ActiveRecord::Base.establish_connection adapter: App.config.db.adapter,
                                             host: App.config.db.host,
-                                            database: "postgres",
+                                            database: App.config.db.name,
                                             username: App.config.db.user,
                                             password: App.config.db.password,
                                             'schema_search_path' => 'public'
@@ -27,7 +27,7 @@ db_namespace=namespace :db do
   task :environment do
     establish_db_connection
     ActiveRecord::Migrator.migrations_paths=
-        File.expand_path("../crawler/models/migrations", File.dirname(__FILE__))
+        File.expand_path("../db/migrations", File.dirname(__FILE__))
   end
 
   desc "create database"
