@@ -2,12 +2,15 @@ require_relative 'init'
 
 class SecondRun
   def run
-    deposits = Deposit.all.to_a
+    deposits = Deposit.where(refill_status: nil).all.to_a
+    i=0
+    count = Deposit.count
     deposits.each do |deposit|
-      puts "Processing #{deposit.id} deposit"
+      puts "Processed #{i.to_f / count}%"
       url = "https://www.banki.ru"+deposit.website_link
       page = fetch_page(url)
       parse_page(page, deposit)
+      i+=1
     end
   end
 
