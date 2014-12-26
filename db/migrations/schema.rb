@@ -14,15 +14,19 @@
 ActiveRecord::Schema.define(version: 20141226115506) do
 
   create_table "deposits", force: :cascade do |t|
-    t.integer "website_id",      null: false
-    t.string  "title"
-    t.string  "bank"
-    t.float   "rate"
-    t.float   "term"
-    t.integer "min"
-    t.string  "special_deposit"
-    t.string  "special_terms"
-    t.string  "refill"
+    t.integer  "website_id",      null: false
+    t.string   "title"
+    t.string   "bank"
+    t.float    "rate"
+    t.float    "term"
+    t.integer  "min"
+    t.string   "special_deposit"
+    t.string   "special_terms"
+    t.string   "refill_status"
+    t.string   "refill_warning"
+    t.string   "refill_message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

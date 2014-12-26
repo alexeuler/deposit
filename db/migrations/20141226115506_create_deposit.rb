@@ -9,7 +9,9 @@ class CreateDeposit < ActiveRecord::Migration
       t.integer 'min'
       t.string 'special_deposit'
       t.string 'special_terms'
-      t.string 'refill'
+      t.string 'refill_status'
+      t.string 'refill_warning'
+      t.string 'refill_message'
       t.timestamps
     end
   end

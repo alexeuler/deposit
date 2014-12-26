@@ -33,13 +33,19 @@ db_namespace=namespace :db do
   desc "create database"
   task :create do
     establish_master_connection
-    ActiveRecord::Base.connection.create_database App::config.db.name
+    # for postgres
+    # ActiveRecord::Base.connection.create_database App::config.db.name
   end
 
   desc "drop database"
   task :drop do
     establish_master_connection
-    ActiveRecord::Base.connection.drop_database App::config.db.name
+
+    # for postgres
+    # ActiveRecord::Base.connection.drop_database App::config.db.name
+    # for sqlite3
+    path = File.expand_path('../' + App::config.db.name, File.dirname(__FILE__))
+    File::delete(path)
   end
 
   desc "reset database"
