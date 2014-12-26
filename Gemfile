@@ -1,0 +1,6 @@
+source 'https://rubygems.org'
+gem 'nokogiri'
+gem 'rake'
+gem 'activerecord'
+gem 'activesupport'
+gem 'sqlite3'
