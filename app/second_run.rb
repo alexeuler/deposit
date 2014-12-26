@@ -6,7 +6,7 @@ class SecondRun
     i=0
     count = Deposit.count
     deposits.each do |deposit|
-      puts "Processed #{i.to_f / count}%"
+      puts "Processed #{(i.to_f / count * 100).round}%"
       url = "https://www.banki.ru"+deposit.website_link
       page = fetch_page(url)
       parse_page(page, deposit)
